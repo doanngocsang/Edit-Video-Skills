@@ -16,18 +16,18 @@ tự dựng hiệu ứng và xuất file.
 
 ### Cách A — Dán câu này vào Claude Code (Claude tự cài)
 ```text
-Cài bộ skill từ https://github.com/doanngocsang/claude-video-skills: tải repo về, chép mọi thư mục bên trong thư mục skills/ vào thư mục skill cá nhân của Claude Code (Windows: %USERPROFILE%\.claude\skills\ — macOS/Linux: ~/.claude/skills/), ghi đè nếu đã có. Sau đó kiểm tra mỗi thư mục có SKILL.md và thư mục scripts/, rồi báo lại danh sách skill đã cài.
+Cài bộ skill từ https://github.com/doanngocsang/Edit-Video-Skills: tải repo về, chép mọi thư mục bên trong thư mục skills/ vào thư mục skill cá nhân của Claude Code (Windows: %USERPROFILE%\.claude\skills\ — macOS/Linux: ~/.claude/skills/), ghi đè nếu đã có. Sau đó kiểm tra mỗi thư mục có SKILL.md và thư mục scripts/, rồi báo lại danh sách skill đã cài.
 ```
 Cài xong, **thoát và mở lại Claude Code** để skill được nạp.
 
 ### Cách B — 1 dòng lệnh trong terminal
 **Windows (PowerShell):**
 ```powershell
-$t="$env:TEMP\cvs"; Remove-Item $t,"$t.zip" -Recurse -Force -EA 0; Invoke-WebRequest https://github.com/doanngocsang/claude-video-skills/archive/refs/heads/main.zip -OutFile "$t.zip"; Expand-Archive "$t.zip" $t -Force; New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null; Copy-Item "$t\claude-video-skills-main\skills\*" "$env:USERPROFILE\.claude\skills\" -Recurse -Force; Write-Host "Da cai xong"
+$t="$env:TEMP\cvs"; Remove-Item $t,"$t.zip" -Recurse -Force -EA 0; Invoke-WebRequest https://github.com/doanngocsang/Edit-Video-Skills/archive/refs/heads/main.zip -OutFile "$t.zip"; Expand-Archive "$t.zip" $t -Force; New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null; Copy-Item "$t\Edit-Video-Skills-main\skills\*" "$env:USERPROFILE\.claude\skills\" -Recurse -Force; Write-Host "Da cai xong"
 ```
 **macOS / Linux:**
 ```bash
-git clone --depth 1 https://github.com/doanngocsang/claude-video-skills /tmp/cvs && mkdir -p ~/.claude/skills && cp -R /tmp/cvs/skills/* ~/.claude/skills/ && rm -rf /tmp/cvs && echo "Da cai xong"
+git clone --depth 1 https://github.com/doanngocsang/Edit-Video-Skills /tmp/cvs && mkdir -p ~/.claude/skills && cp -R /tmp/cvs/skills/* ~/.claude/skills/ && rm -rf /tmp/cvs && echo "Da cai xong"
 ```
 Sau đó mở Claude Code trong thư mục dự án video và gọi: *"edit Dạng 1 plus cho
 video này"* hoặc *"edit explainer chia đôi cho video này"*. Lần chạy đầu
